@@ -60,7 +60,7 @@ function handleKey(e) {
     draw({ key: e.key });
   }
 }
-// clear /shke function
+// clear /sake function
 function clearCanvas() {
   canvas.classList.add('shake');
   ctx.clearRect(0, 0, width, height);
