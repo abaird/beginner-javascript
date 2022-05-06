@@ -7,7 +7,7 @@ const canvas = document.querySelector('.video');
 const ctx = canvas.getContext('2d');
 const faceCanvas = document.querySelector('.face');
 const faceCtx = faceCanvas.getContext('2d');
-const faceDetector = new window.FaceDetector();
+const faceDetector = new window.FaceDetector({fastMode: true});
 const optionsInputs = document.querySelectorAll(
   '.controls input[type="range"]'
 );
@@ -88,5 +88,5 @@ function censor({ boundingBox: face }) {
     height
   );
 }
-
+console.log("finished version");
 populateVideo().then(detect);

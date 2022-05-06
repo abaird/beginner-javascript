@@ -5,8 +5,8 @@ var reload = browserSync.reload;
 gulp.task('serve', function() {
   browserSync.init({
     server: {
-      baseDir: 'exercises/34 - Click Outside',
-      index: "click-outside.html"
+      baseDir: 'exercises/57 - Shopping List',
+      index: "index.html"
     }
   });
 

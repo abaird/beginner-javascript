@@ -10,18 +10,54 @@
 
 <body>
   <script>
+    console.log("it works")
     const numbers = [2, 34, 3, 23, 42, 3, 1, 65, 364, 5, 645, 6];
 
-    const name = 'Wes Bos';
+    const name = 'Alan Baird👨‍👩‍👧‍👧';
 
     // For
+    for(let i = 0; i <= 10; i++) {
+      console.log(i)
+    }
 
     // For of
-
+    for (const iterator of numbers) {
+      console.log(iterator)
+    }
+ 
     // For in
 
+    const obj = {foo: 1, bar: 2, baz: 3}
+    for (const key in obj) {
+      console.log(key)
+    }
+
+    const baseHumanStats = {
+      feet: 2,
+      arms: 2, 
+      eyes: 2,
+      head: 1
+    }
+
+    function Human(name) {
+      this.name = name
+    }
+
+    Human.prototype = baseHumanStats
+
+    const alan2 = new Human("alan")
+    
+    for (const key in object) {
+      if (Object.hasOwnProperty.call(object, key)) {
+        const element = object[key];
+        
+      }
+    }
+
     // While Loop
+
+
   </script>
 </body>
 
-</html>
+</html>   

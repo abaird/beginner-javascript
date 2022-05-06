@@ -11,6 +11,56 @@
 </head>
 
 <body>
+  <script>
+    const names = ['alan', 'barbara', 'olivia', 'isabella'];
+    // console.log(names)
+    
+    // console.log(names[0])
+    // console.log(names[1])
+    // console.log(names[names.length -1])
+    // console.log(names.length)
+
+    const numbers = [1,2,3,4,5,6,7,8,9]    
+    // // numbers.reverse();
+    // console.log(numbers)
+
+    // const pizzaSlice = numbers.slice(2,6)
+    // console.log(pizzaSlice)
+
+    names.push('lux');
+    console.log(names)
+    const names2 = [...names, 'lux']
+    console.log(names2)
+
+    console.log(numbers)
+    console.log(numbers.slice(3, 5))
+    console.log(numbers)
+     
+    console.log(numbers)
+    numbers.splice(3, 5)
+    console.log(numbers)
+
+    const comments = [
+      {text: "foo bar", id: 123},
+      {text: "yo joes", id: 133},
+      {text: "alksdfjasdflk", id: 143},
+      {text: "I am bored", id: 153},
+      {text: "Jesus saves", id: 163},
+    ]
+
+    const deleteComment = (id, comments) => {
+      const index = comments.findIndex( item => item.id === id )
+      if(index === -1) return comments
+      return [
+        ...comments.slice(0, index),
+        ...comments.slice(index + 1),
+      ]
+    }
+
+    console.log(deleteComment(163, comments))
+    console.log(deleteComment(123, comments))
+    console.log(deleteComment(99, comments))
+  </script>
 
 </body>
 
