@@ -9,7 +9,39 @@
 </head>
 
 <body>
+  <button class="one">button1</button>
+  <button class="two">button2</button>
+  <script>
+    const myDate = new Date("August 11, 2025")
+    console.dir(myDate)
+    console.log(myDate.getFullYear() )
 
+    const names = new Array('alan', 'barbara')
+    const alan = new Object({foo: 'bar'})
+
+    function Pizza(){
+      console.log("making a pizza")
+    }
+
+    const myPizza = new Pizza() 
+    console.log(myPizza)
+    console.log(myPizza.constructor)
+    console.log(myPizza instanceof Pizza)
+
+    const button1 = document.querySelector('.one')
+    const button2 = document.querySelector('.two')
+
+    function tellMeAboutTheButton(){
+      console.log('outside', this)
+      setTimeout(() => {
+      console.log(this)
+      this.textContent = "You clicked me"
+      }, 1000)
+    }
+
+    button1.addEventListener('click', tellMeAboutTheButton)
+    button2.addEventListener('click', tellMeAboutTheButton)
+  </script>
 </body>
 
 </html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Event Loop</title>
+  <link rel="stylesheet" href="../base.css">
+</head>
+
+<body>
+  <style>
+    .go {
+      margin: 5rem;
+      background: white;
+      padding: 5rem;
+      width: 25rem;
+      height: 25rem;
+      transform: all 0.2s;
+    }
+
+    .go.circle {
+      border-radius: 50%;
+    }
+
+    .go.red {
+      background-color: red;
+    }
+
+    .go.purple {
+      background-color: purple;
+    }
+
+    .go.fade-out {
+      display: none;
+      transform: all 0.2s;
+    }
+  </style>
+  <div class="go">Click Me</div>
+  <script>
+    // eslint-disable-next-line no-promise-executor-return
+    const wait = (ms = 0) => new Promise((resolve) => setTimeout(resolve, ms));
+
+    wait(2000).then(() => {
+      console.log('Done');
+    });
+
+    const animate = (e) => {
+      const el = e.currentTarget;
+      el.textContent = 'GO!';
+      wait(2000)
+        .then(() => {
+          el.classList.add('circle');
+          return wait(500);
+        })
+        .then(() => {
+          el.classList.add('red');
+          return wait(250);
+        })
+        .then(() => {
+          el.classList.remove('circle');
+          return wait(300);
+        })
+        .then(() => {
+          el.classList.remove('red');
+          el.classList.add('purple');
+          return wait(500);
+        })
+        .then(() => {
+          el.classList.add('fade-out');
+        });
+    };
+
+    const animate2 = async (e) => {
+      const el = e.currentTarget;
+      el.textContent = 'GO!';
+      await wait(2000);
+      el.classList.add('circle');
+      await wait(500);
+      el.classList.add('red');
+      await wait(250);
+      el.classList.remove('circle');
+      await wait(300);
+      el.classList.remove('red');
+      el.classList.add('purple');
+      await wait(500);
+      el.classList.add('fade-out');
+    };
+
+    const go = document.querySelector('.go');
+    go.addEventListener('click', animate2);
+  </script>
+</body>
+
+</html>
